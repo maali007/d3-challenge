@@ -49,6 +49,17 @@ d3.csv("assets/data/data.csv").then(function(stateStats) {
       .attr("cy", d => scaleY(d[dataVar2]))
       .attr("r", 15)
   
+  // Step 1.7: Create the state labels
+  var stateLabels = chartGroup.selectAll(".stateText")
+      .data(stateStats)
+      .enter()
+      stateLabels.append("text")
+      .classed("stateText", true)
+      .attr("x", d => scaleX(d[dataVar1]) )
+      .attr("y", d => scaleY(d[dataVar2]))
+      .attr('dy', 3)
+      .attr("font-size", 12)
+      .text(d => d.abbr);
 
 
 
