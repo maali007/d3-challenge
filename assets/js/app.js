@@ -61,6 +61,31 @@ d3.csv("assets/data/data.csv").then(function(stateStats) {
       .attr("font-size", 12)
       .text(d => d.abbr);
 
+  // Step 1.8: Append axes titles
+  var xLabelsGroup = chartGroup.append("g")
+      .attr("transform", `translate(${chartWidth / 2}, ${chartHeight + margin.top})`)
+      xLabelsGroup.append("text")
+      .classed("aText", true)
+      .classed("active", true)
+      .attr("x", 0)
+      .attr("y", 20)
+      .attr("value", "poverty")
+      .text("In Poverty (%)");
+
+
+  var yLabelsGroup = chartGroup.append("g")
+      .attr("transform", `translate(${0 - margin.left/4}, ${chartHeight/2})`)
+      yLabelsGroup.append("text")
+      .classed("aText", true)
+      .classed("active", true)
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - 20)
+      .attr("x", 0)
+      .attr("value", "healthcare")
+      .text("Lacks Healthcare (%)");
+  
+  var stateCircles = updateToolTip(dataVar1, dataVar2, stateCircles);
+
 
 
 }).catch(function(error) {
