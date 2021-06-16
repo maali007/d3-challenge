@@ -1,12 +1,12 @@
 // Step 1: Specify SVG area dimensions
 var svgWidth = 1000;
-var svgHeight = 500;
+var svgHeight = 600;
 
 // Step 2: Set the chart's margins
 var margin = {
   top: 0,
   right: 100,
-  bottom: 50,
+  bottom: 125,
   left: 100
 };
 
@@ -44,14 +44,14 @@ d3.csv("assets/data/data.csv").then(function(stateStats) {
   // Step 6.4: Update the horizontal and vertical scales to the selected data variables
   function xScale(stateStats, dataVar1) {
     var scaleX = d3.scaleLinear()
-      .domain([d3.min(stateStats, d => d[dataVar1]) * 0.85 , d3.max(stateStats, d => d[dataVar1]) * 1.15])
+      .domain([d3.min(stateStats, d => d[dataVar1]) - 1 , d3.max(stateStats, d => d[dataVar1]) + 1])
       .range([0, chartWidth]);
     return scaleX;
   }
 
   function yScale(stateStats, dataVar2) {
     var scaleY = d3.scaleLinear()
-      .domain([d3.min(stateStats, d => d[dataVar2]) * 0.85, d3.max(stateStats, d => d[dataVar2]) * 1.15])
+      .domain([d3.min(stateStats, d => d[dataVar2]) - 0.5, d3.max(stateStats, d => d[dataVar2]) + 2])
       .range([chartHeight, 0]);
     return scaleY;
   }
@@ -93,7 +93,7 @@ d3.csv("assets/data/data.csv").then(function(stateStats) {
       .classed("aText", true)
       .classed("active", true)
       .attr("x", 0)
-      .attr("y", 20)
+      .attr("y", 50)
       .attr("value", "poverty")
       .text("In Poverty (%)");
 
