@@ -30,6 +30,15 @@ d3.csv("assets/data/data.csv").then(function(stateStats) {
       .range([chartHeight, 0]);
     return scaleY;
   }
+  // Step 1.5: Create the axes
+  var hAxis = d3.axisBottom(scaleX);
+  var hAxis = chartGroup.append("g")
+      .attr("transform", `translate(0, ${chartHeight})`)
+      .call(hAxis);
+  var vAxis = d3.axisLeft(scaleY);
+  var vAxis = chartGroup.append("g")
+      .call(vAxis);
+
   
 
 
