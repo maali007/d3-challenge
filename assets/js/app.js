@@ -39,6 +39,15 @@ d3.csv("assets/data/data.csv").then(function(stateStats) {
   var vAxis = chartGroup.append("g")
       .call(vAxis);
 
+  // Step 1.6: Attach circles to data points for the state labels
+  var stateCircles = chartGroup.selectAll("circle")
+      .data(stateStats)
+      .enter()
+      .append("circle")
+      .classed("stateCircle", true)
+      .attr("cx", d => scaleX(d[dataVar1]))
+      .attr("cy", d => scaleY(d[dataVar2]))
+      .attr("r", 15)
   
 
 
