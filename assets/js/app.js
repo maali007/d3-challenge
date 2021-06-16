@@ -8,6 +8,30 @@ d3.csv("assets/data/data.csv").then(function(stateStats) {
     data.healthcare = +data.healthcare;
   });
 
+  // Step 1.2: Set initial parameters of x and y axis
+  var dataVar1 = "poverty";
+  var dataVar2 = "healthcare";
+
+  // Step 1.3: Make scale variable for both axes
+  var scaleX = xScale(stateStats, dataVar1);
+  var scaleY = yScale(stateStats, dataVar2);
+
+  // Step 1.4: Update the horizontal and vertical scales to the selected data variables
+  function xScale(stateStats, dataVar1) {
+    var scaleX = d3.scaleLinear()
+      .domain([d3.min(stateStats, d => d[dataVar1]) * 0.85 , d3.max(stateStats, d => d[dataVar1]) * 1.15])
+      .range([0, chartWidth]);
+    return scaleX;
+  }
+
+  function yScale(stateStats, dataVar2) {
+    var scaleY = d3.scaleLinear()
+      .domain([d3.min(stateStats, d => d[dataVar2]) * 0.85, d3.max(stateStats, d => d[dataVar2]) * 1.15])
+      .range([chartHeight, 0]);
+    return scaleY;
+  }
+  
+
 
 
 }).catch(function(error) {
