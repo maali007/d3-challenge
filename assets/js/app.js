@@ -96,3 +96,11 @@ d3.csv("assets/data/data.csv").then(function(stateStats) {
 var svgWidth = 1000;
 var svgHeight = 600;
 
+// Step 3: Set the chart's margins
+var margin = {
+  top: 20,
+  right: 40,
+  bottom: 120,
+  left: 100
+};
+
