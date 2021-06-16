@@ -18,4 +18,5 @@
       <li>Step 6.8: Append axes titles.</li>
     </ul>
   </li>
+  <li>After inishing the chart, I added some analysis of the scatter plot on the webpage.</li>
 </ul>
