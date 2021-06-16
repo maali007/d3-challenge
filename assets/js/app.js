@@ -92,3 +92,7 @@ d3.csv("assets/data/data.csv").then(function(stateStats) {
   console.log(error);
 });
 
+// Step 2: Specify SVG area dimensions
+var svgWidth = 1000;
+var svgHeight = 600;
+
