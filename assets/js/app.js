@@ -104,3 +104,7 @@ var margin = {
   left: 100
 };
 
+// Step 4. Set chart area size
+var chartWidth = svgWidth - margin.left - margin.right;
+var chartHeight = svgHeight - margin.top - margin.bottom;
+
